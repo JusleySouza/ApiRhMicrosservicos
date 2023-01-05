@@ -19,7 +19,7 @@ public class UserApiApplication implements CommandLineRunner{
 	public static void main(String[] args) {
 		SpringApplication.run(UserApiApplication.class, args);
 	}
-
+	
 	@Override
 	public void run(String... args) throws Exception {
 		userRepository.saveAll(List.of(
