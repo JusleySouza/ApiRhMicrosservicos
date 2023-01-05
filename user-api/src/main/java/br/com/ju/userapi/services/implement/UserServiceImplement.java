@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import br.com.ju.userapi.domain.User;
 import br.com.ju.userapi.repositories.UserRepository;
 import br.com.ju.userapi.services.UserService;
+import br.com.ju.userapi.services.exceptions.ObjectNotFoundException;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -18,7 +19,8 @@ public class UserServiceImplement implements UserService{
 
 	@Override
 	public User findById(Long id) {
-		return repository.findById(id).orElse(null);
+		return repository.findById(id).orElseThrow(() -> 
+		new ObjectNotFoundException("Object not found!!"));
 	}
 
 	@Override
